@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domino Image Viewer Privacy Policy</title>
+  <meta
+    name="description"
+    content="Privacy Policy for Domino Image Viewer, a local-first macOS image viewer and comparison app."
+  >
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f1e8;
+      --bg-soft: #fbf8f2;
+      --panel: rgba(255, 255, 255, 0.78);
+      --panel-strong: rgba(255, 255, 255, 0.92);
+      --ink: #151821;
+      --muted: rgba(21, 24, 33, 0.7);
+      --line: rgba(21, 24, 33, 0.09);
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.12);
+      --warm: #b45309;
+      --shadow: 0 30px 80px rgba(34, 40, 56, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Avenir Next", "Segoe UI Variable", "PingFang SC", "Hiragino Sans GB", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.1), transparent 24%),
+        radial-gradient(circle at 92% 12%, rgba(180, 83, 9, 0.11), transparent 20%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: 0;
+      border-radius: 999px;
+      filter: blur(30px);
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    body::before {
+      width: 320px;
+      height: 320px;
+      left: -80px;
+      bottom: 8vh;
+      background: rgba(37, 99, 235, 0.1);
+    }
+
+    body::after {
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: 8vh;
+      background: rgba(180, 83, 9, 0.1);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 36px rgba(17, 24, 39, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, #7dd3fc 0%, #2563eb 58%, #1d4ed8 100%);
+      box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lang-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .lang-links a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.76)),
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(180, 83, 9, 0.06));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 280px;
+      height: 280px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.14), transparent 68%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      max-width: 12ch;
+    }
+
+    .hero-subtitle {
+      max-width: 58rem;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.72;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .meta-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.74);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .fact {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 40px rgba(17, 24, 39, 0.06);
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .fact p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.62;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .panel {
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      box-shadow: 0 18px 54px rgba(17, 24, 39, 0.06);
+    }
+
+    .panel h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .panel-intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .policy-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--ink);
+    }
+
+    .policy-list li {
+      margin: 10px 0;
+      line-height: 1.72;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .dual {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.04));
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding: 20px 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.62);
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px) {
+      .facts,
+      .dual {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(calc(100% - 20px), var(--max-width));
+        padding: 16px 0 28px;
+      }
+
+      .hero,
+      .panel {
+        padding: 22px;
+      }
+
+      .facts,
+      .dual {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .topbar {
+        border-radius: 22px;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <strong>Domino Image Viewer</strong>
+          <span>Local-first macOS image workflow app</span>
+        </div>
+      </div>
+      <nav class="lang-links" aria-label="Language links">
+        <a href="#zh">中文</a>
+        <a href="#en">English</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Privacy Policy</div>
+      <h1>Domino Image Viewer Privacy Policy</h1>
+      <p class="hero-subtitle">
+        Domino Image Viewer is designed for local desktop image workflows. The app processes files and folders
+        that you explicitly choose to open, and it keeps its working data on your Mac. Core features do not require
+        an online account, cloud sync, advertising SDKs, or third-party analytics.
+      </p>
+      <div class="hero-meta">
+        <div class="meta-chip">Last updated: March 8, 2026</div>
+        <div class="meta-chip">Applies to: Domino Image Viewer for macOS</div>
+        <div class="meta-chip">Publishing target: GitHub Pages / App Store Connect</div>
+      </div>
+    </section>
+
+    <section class="facts" aria-label="Key privacy facts">
+      <article class="fact">
+        <strong>No account required</strong>
+        <p>The app does not require sign-in, a user account, or a profile system to use its core features.</p>
+      </article>
+      <article class="fact">
+        <strong>No analytics or tracking</strong>
+        <p>The app does not include analytics, advertising, cross-app tracking, or telemetry sent to the developer.</p>
+      </article>
+      <article class="fact">
+        <strong>Files stay local</strong>
+        <p>Images, folders, previews, caches, and metadata used by the app are processed locally on your device.</p>
+      </article>
+      <article class="fact">
+        <strong>User-controlled access</strong>
+        <p>The app only reads files and folders that you open directly or authorize through macOS file permissions.</p>
+      </article>
+    </section>
+
+    <div class="section-grid">
+      <section class="panel" id="zh" lang="zh-CN">
+        <h2>中文隐私政策</h2>
+        <p class="panel-intro">
+          Domino Image Viewer 是一款面向 macOS 的本地优先图像查看与对比应用。它的核心用途是浏览、预览、
+          对比、裁剪、调整尺寸、查看元数据和导出图像文件。除非你主动选择某些文件或文件夹并授予系统权限，
+          否则应用不会访问你的内容。
+        </p>
+
+        <div class="dual">
+          <div>
+            <h3>1. 我们会处理哪些数据</h3>
+            <ol class="policy-list">
+              <li>你主动打开或授权访问的图片、文件夹和相关文件路径。</li>
+              <li>与图像处理有关的本地信息，例如缩略图、预览图、元数据索引和临时处理文件。</li>
+              <li>应用本地偏好设置，例如启动目录、界面语言、比较布局、缓存策略和快捷访问项。</li>
+              <li>为在 macOS 沙盒环境下恢复你授权过的目录访问权限，应用可能在你的设备本地保存 security-scoped bookmarks。</li>
+            </ol>
+          </div>
+          <div>
+            <h3>2. 我们如何使用这些数据</h3>
+            <ol class="policy-list">
+              <li>显示图片浏览、预览、同步对比、像素检查、裁剪、尺寸调整和导出结果。</li>
+              <li>加快下次打开同一批文件时的缩略图和预览加载速度。</li>
+              <li>记住你已经授权的目录和常用工作区设置，减少重复授权和重复配置。</li>
+              <li>在你的设备上维护应用正常运行所需的本地缓存和临时数据。</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="dual" style="margin-top: 18px;">
+          <div>
+            <h3>3. 数据存储位置</h3>
+            <ol class="policy-list">
+              <li>上述数据默认保存在你的 Mac 本地，包括系统提供的缓存目录、应用支持目录和偏好设置存储。</li>
+              <li>核心功能不需要在线账号，也不会把你选择的图片、文件夹、元数据或缓存上传到开发者服务器。</li>
+              <li>应用不会出售你的个人数据，也不会为了广告定向而共享这些数据。</li>
+            </ol>
+          </div>
+          <div>
+            <h3>4. 我们不会做什么</h3>
+            <ol class="policy-list">
+              <li>不会要求你注册账号或登录后才能使用核心功能。</li>
+              <li>不会内置广告 SDK、行为分析 SDK、跨 App 跟踪或崩溃上报服务。</li>
+              <li>不会把本地图片内容自动上传给开发者，也不会把你的图像库用于模型训练或营销。</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>权限与控制</strong>
+          <p>
+            你可以通过 macOS 的“隐私与安全性”设置撤销文件访问权限，也可以删除应用缓存、移除已保存的目录授权，
+            或直接卸载应用。这样做可能会清除已保存的缩略图缓存、快速访问目录和部分本地偏好设置。
+          </p>
+        </div>
+
+        <div class="callout">
+          <strong>政策更新与联系</strong>
+          <p>
+            如果 Domino Image Viewer 将来新增账号系统、云同步、联网上传、分析服务或其他会改变数据处理方式的功能，
+            本页面会同步更新。若你对隐私问题有疑问，请优先使用应用商店页面或软件发布页面中列出的支持联系方式。
+          </p>
+        </div>
+      </section>
+
+      <section class="panel" id="en" lang="en">
+        <h2>English Privacy Policy</h2>
+        <p class="panel-intro">
+          Domino Image Viewer is a local-first macOS image viewing and comparison app. Its core features include
+          browsing, previewing, comparing, cropping, resizing, inspecting metadata, and exporting image files.
+          The app only accesses content that you explicitly choose to open or authorize through macOS permissions.
+        </p>
+
+        <div class="dual">
+          <div>
+            <h3>1. Information the app may process</h3>
+            <ol class="policy-list">
+              <li>Images, folders, and file paths that you choose to open or authorize.</li>
+              <li>Local working data used for image workflows, such as thumbnails, previews, metadata indexes, and temporary processing files.</li>
+              <li>Local app preferences, such as startup folders, UI language, comparison layout, cache settings, and quick-access items.</li>
+              <li>Security-scoped bookmarks stored locally on your Mac so the app can restore access to folders that you previously approved.</li>
+            </ol>
+          </div>
+          <div>
+            <h3>2. How the app uses that information</h3>
+            <ol class="policy-list">
+              <li>To provide browsing, preview, synchronized comparison, pixel inspection, crop, resize, and export features.</li>
+              <li>To improve performance by caching thumbnails and previews locally for files you revisit.</li>
+              <li>To remember folders and workspace settings that you already approved, reducing repeated permission prompts.</li>
+              <li>To maintain local cache and temporary data required for normal app operation on your device.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="dual" style="margin-top: 18px;">
+          <div>
+            <h3>3. Where data is stored</h3>
+            <ol class="policy-list">
+              <li>The information above is stored locally on your Mac, including system cache locations, app support locations, and local preferences storage.</li>
+              <li>Core features do not require an online account and do not upload your selected images, folders, metadata, or caches to developer-operated servers.</li>
+              <li>The app does not sell your personal data and does not share it for targeted advertising.</li>
+            </ol>
+          </div>
+          <div>
+            <h3>4. What the app does not do</h3>
+            <ol class="policy-list">
+              <li>It does not require account registration or sign-in for core functionality.</li>
+              <li>It does not include advertising SDKs, behavioral analytics SDKs, cross-app tracking, or developer telemetry services.</li>
+              <li>It does not automatically upload your local images to the developer, and it does not use your files for AI model training or marketing.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Permissions and user control</strong>
+          <p>
+            You can revoke file access through macOS Privacy &amp; Security settings, clear local caches, remove saved folder authorizations,
+            or uninstall the app. Doing so may remove local thumbnail caches, quick-access folders, and certain stored preferences.
+          </p>
+        </div>
+
+        <div class="callout">
+          <strong>Updates and privacy questions</strong>
+          <p>
+            If Domino Image Viewer adds accounts, cloud sync, uploads, analytics, or other features that change how data is handled,
+            this page will be updated. For privacy-related questions, please use the support contact published with the app listing or release page.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      This page is intended to serve as the public privacy policy URL for Domino Image Viewer in App Store Connect.
+      If you later add login, syncing, uploads, subscriptions, crash reporting, or analytics, update this page before releasing that version.
+    </footer>
+  </main>
+</body>
+</html>
